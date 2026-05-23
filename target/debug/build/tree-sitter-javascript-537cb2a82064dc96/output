@@ -1,0 +1,189 @@
+cargo:rerun-if-changed=src\parser.c
+cargo:rerun-if-changed=src\scanner.c
+cargo:rerun-if-env-changed=CC_FORCE_DISABLE
+CC_FORCE_DISABLE = None
+cargo:rerun-if-env-changed=VCINSTALLDIR
+VCINSTALLDIR = None
+cargo:rerun-if-env-changed=VSTEL_MSBuildProjectFullPath
+VSTEL_MSBuildProjectFullPath = None
+cargo:rerun-if-env-changed=VCToolsVersion
+VCToolsVersion = None
+cargo:rerun-if-env-changed=VSCMD_ARG_VCVARS_SPECTRE
+VSCMD_ARG_VCVARS_SPECTRE = None
+cargo:rerun-if-env-changed=WindowsSdkDir
+WindowsSdkDir = None
+cargo:rerun-if-env-changed=WindowsSDKVersion
+WindowsSDKVersion = None
+cargo:rerun-if-env-changed=LIB
+LIB = None
+PATH = Some(C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug;C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\simon\go\bin;C:\Users\simon\.opencode\bin;C:\Users\simon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\simon\bin;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Users\simon\AppData\Local\agy\bin;C:\Users\simon\scoop\shims;C:\Users\simon\.cargo\bin;C:\Users\simon\AppData\Local\pnpm;C:\Custom\Path;C:\Users\simon\.local\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\.lmstudio\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\simon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\simon\AppData\Roaming\npm;C:\Users\simon\AppData\Local\Programs\Kiro\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Links;C:\Users\simon\.bun\bin;C:\Users\simon\AppData\Local\Programs\Antigravity\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Packages\ChrisBagwell.SoX_Microsoft.Winget.Source_8wekyb3d8bbwe\sox-14.4.2;C:\Users\simon\AppData\Local\Programs\Warp\bin;C:\Users\simon\AppData\Local\Programs\Obsidian;C:\Users\simon\AppData\Local\Programs\IBM Bob\bin;C:\Users\simon\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\simon\.bun\bin;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin)
+cargo:rerun-if-env-changed=INCLUDE
+INCLUDE = None
+cargo:rerun-if-env-changed=CC_x86_64-pc-windows-msvc
+CC_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_x86_64_pc_windows_msvc
+CC_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_pc_windows_msvc
+CFLAGS_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64-pc-windows-msvc
+CFLAGS_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_pc_windows_msvc
+CFLAGS_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64-pc-windows-msvc
+CFLAGS_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+parser.c
+cargo:rerun-if-env-changed=VCINSTALLDIR
+VCINSTALLDIR = None
+cargo:rerun-if-env-changed=VSTEL_MSBuildProjectFullPath
+VSTEL_MSBuildProjectFullPath = None
+cargo:rerun-if-env-changed=VCToolsVersion
+VCToolsVersion = None
+cargo:rerun-if-env-changed=VSCMD_ARG_VCVARS_SPECTRE
+VSCMD_ARG_VCVARS_SPECTRE = None
+cargo:rerun-if-env-changed=WindowsSdkDir
+WindowsSdkDir = None
+cargo:rerun-if-env-changed=WindowsSDKVersion
+WindowsSDKVersion = None
+cargo:rerun-if-env-changed=LIB
+LIB = None
+PATH = Some(C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug;C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\simon\go\bin;C:\Users\simon\.opencode\bin;C:\Users\simon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\simon\bin;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Users\simon\AppData\Local\agy\bin;C:\Users\simon\scoop\shims;C:\Users\simon\.cargo\bin;C:\Users\simon\AppData\Local\pnpm;C:\Custom\Path;C:\Users\simon\.local\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\.lmstudio\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\simon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\simon\AppData\Roaming\npm;C:\Users\simon\AppData\Local\Programs\Kiro\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Links;C:\Users\simon\.bun\bin;C:\Users\simon\AppData\Local\Programs\Antigravity\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Packages\ChrisBagwell.SoX_Microsoft.Winget.Source_8wekyb3d8bbwe\sox-14.4.2;C:\Users\simon\AppData\Local\Programs\Warp\bin;C:\Users\simon\AppData\Local\Programs\Obsidian;C:\Users\simon\AppData\Local\Programs\IBM Bob\bin;C:\Users\simon\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\simon\.bun\bin;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin)
+cargo:rerun-if-env-changed=INCLUDE
+INCLUDE = None
+cargo:rerun-if-env-changed=CC_x86_64-pc-windows-msvc
+CC_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_x86_64_pc_windows_msvc
+CC_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+cargo:rerun-if-env-changed=HOST_CFLAGS
+HOST_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_pc_windows_msvc
+CFLAGS_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64-pc-windows-msvc
+CFLAGS_x86_64-pc-windows-msvc = None
+scanner.c
+src\scanner.c(19): warning C4100: 'p': unreferenced formal parameter
+src\scanner.c(21): warning C4100: 'buffer': unreferenced formal parameter
+src\scanner.c(21): warning C4100: 'payload': unreferenced formal parameter
+src\scanner.c(23): warning C4100: 'n': unreferenced formal parameter
+src\scanner.c(23): warning C4100: 'b': unreferenced formal parameter
+src\scanner.c(23): warning C4100: 'p': unreferenced formal parameter
+src\scanner.c(65): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(142): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(177): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(202): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(213): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(227): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(245): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(256): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(302): warning C4244: 'function': conversion from 'int32_t' to 'wint_t', possible loss of data
+src\scanner.c(333): warning C4100: 'payload': unreferenced formal parameter
+cargo:rerun-if-env-changed=AR_x86_64-pc-windows-msvc
+AR_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=AR_x86_64_pc_windows_msvc
+AR_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=HOST_AR
+HOST_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+cargo:rerun-if-env-changed=VCINSTALLDIR
+VCINSTALLDIR = None
+cargo:rerun-if-env-changed=VSTEL_MSBuildProjectFullPath
+VSTEL_MSBuildProjectFullPath = None
+cargo:rerun-if-env-changed=VCToolsVersion
+VCToolsVersion = None
+cargo:rerun-if-env-changed=VSCMD_ARG_VCVARS_SPECTRE
+VSCMD_ARG_VCVARS_SPECTRE = None
+cargo:rerun-if-env-changed=WindowsSdkDir
+WindowsSdkDir = None
+cargo:rerun-if-env-changed=WindowsSDKVersion
+WindowsSDKVersion = None
+cargo:rerun-if-env-changed=LIB
+LIB = None
+PATH = Some(C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug;C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\simon\go\bin;C:\Users\simon\.opencode\bin;C:\Users\simon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\simon\bin;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Users\simon\AppData\Local\agy\bin;C:\Users\simon\scoop\shims;C:\Users\simon\.cargo\bin;C:\Users\simon\AppData\Local\pnpm;C:\Custom\Path;C:\Users\simon\.local\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\.lmstudio\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\simon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\simon\AppData\Roaming\npm;C:\Users\simon\AppData\Local\Programs\Kiro\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Links;C:\Users\simon\.bun\bin;C:\Users\simon\AppData\Local\Programs\Antigravity\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Packages\ChrisBagwell.SoX_Microsoft.Winget.Source_8wekyb3d8bbwe\sox-14.4.2;C:\Users\simon\AppData\Local\Programs\Warp\bin;C:\Users\simon\AppData\Local\Programs\Obsidian;C:\Users\simon\AppData\Local\Programs\IBM Bob\bin;C:\Users\simon\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\simon\.bun\bin;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin)
+cargo:rerun-if-env-changed=INCLUDE
+INCLUDE = None
+cargo:rerun-if-env-changed=CC_x86_64-pc-windows-msvc
+CC_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_x86_64_pc_windows_msvc
+CC_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=VCINSTALLDIR
+VCINSTALLDIR = None
+cargo:rerun-if-env-changed=VSTEL_MSBuildProjectFullPath
+VSTEL_MSBuildProjectFullPath = None
+cargo:rerun-if-env-changed=VCToolsVersion
+VCToolsVersion = None
+cargo:rerun-if-env-changed=VSCMD_ARG_VCVARS_SPECTRE
+VSCMD_ARG_VCVARS_SPECTRE = None
+cargo:rerun-if-env-changed=WindowsSdkDir
+WindowsSdkDir = None
+cargo:rerun-if-env-changed=WindowsSDKVersion
+WindowsSDKVersion = None
+cargo:rerun-if-env-changed=LIB
+LIB = None
+PATH = Some(C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug;C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\simon\go\bin;C:\Users\simon\.opencode\bin;C:\Users\simon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\simon\bin;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Users\simon\AppData\Local\agy\bin;C:\Users\simon\scoop\shims;C:\Users\simon\.cargo\bin;C:\Users\simon\AppData\Local\pnpm;C:\Custom\Path;C:\Users\simon\.local\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\.lmstudio\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\simon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\simon\AppData\Roaming\npm;C:\Users\simon\AppData\Local\Programs\Kiro\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Links;C:\Users\simon\.bun\bin;C:\Users\simon\AppData\Local\Programs\Antigravity\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Packages\ChrisBagwell.SoX_Microsoft.Winget.Source_8wekyb3d8bbwe\sox-14.4.2;C:\Users\simon\AppData\Local\Programs\Warp\bin;C:\Users\simon\AppData\Local\Programs\Obsidian;C:\Users\simon\AppData\Local\Programs\IBM Bob\bin;C:\Users\simon\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\simon\.bun\bin;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin)
+cargo:rerun-if-env-changed=INCLUDE
+INCLUDE = None
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+cargo:rerun-if-env-changed=HOST_ARFLAGS
+HOST_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64_pc_windows_msvc
+ARFLAGS_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=ARFLAGS_x86_64-pc-windows-msvc
+ARFLAGS_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=VCINSTALLDIR
+VCINSTALLDIR = None
+cargo:rerun-if-env-changed=VSTEL_MSBuildProjectFullPath
+VSTEL_MSBuildProjectFullPath = None
+cargo:rerun-if-env-changed=VCToolsVersion
+VCToolsVersion = None
+cargo:rerun-if-env-changed=VSCMD_ARG_VCVARS_SPECTRE
+VSCMD_ARG_VCVARS_SPECTRE = None
+cargo:rerun-if-env-changed=WindowsSdkDir
+WindowsSdkDir = None
+cargo:rerun-if-env-changed=WindowsSDKVersion
+WindowsSDKVersion = None
+cargo:rerun-if-env-changed=LIB
+LIB = None
+PATH = Some(C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug;C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\simon\go\bin;C:\Users\simon\.opencode\bin;C:\Users\simon\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\simon\bin;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\ImageMagick-7.1.1-Q16-HDRI;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\GitHub CLI;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Users\simon\AppData\Local\agy\bin;C:\Users\simon\scoop\shims;C:\Users\simon\.cargo\bin;C:\Users\simon\AppData\Local\pnpm;C:\Custom\Path;C:\Users\simon\.local\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\.npm-global;C:\Users\simon\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\simon\AppData\Local\Programs\Python\Python313;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\simon\AppData\Local\Microsoft\WindowsApps;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\HP\HP One Agent;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Program Files\Git\cmd;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Void\bin;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\simon\AppData\Local\Programs\Ollama;C:\Users\simon\.lmstudio\bin;C:\Users\simon\AppData\Local\nvm;C:\nvm4w\nodejs;C:\Users\simon\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\simon\AppData\Roaming\npm;C:\Users\simon\AppData\Local\Programs\Kiro\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Links;C:\Users\simon\.bun\bin;C:\Users\simon\AppData\Local\Programs\Antigravity\bin;C:\Users\simon\AppData\Local\Microsoft\WinGet\Packages\ChrisBagwell.SoX_Microsoft.Winget.Source_8wekyb3d8bbwe\sox-14.4.2;C:\Users\simon\AppData\Local\Programs\Warp\bin;C:\Users\simon\AppData\Local\Programs\Obsidian;C:\Users\simon\AppData\Local\Programs\IBM Bob\bin;C:\Users\simon\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\Users\simon\.bun\bin;C:\Users\simon\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin)
+cargo:rerun-if-env-changed=INCLUDE
+INCLUDE = None
+cargo:rerun-if-env-changed=CC_x86_64-pc-windows-msvc
+CC_x86_64-pc-windows-msvc = None
+cargo:rerun-if-env-changed=CC_x86_64_pc_windows_msvc
+CC_x86_64_pc_windows_msvc = None
+cargo:rerun-if-env-changed=HOST_CC
+HOST_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rustc-link-lib=static=tree-sitter-javascript
+cargo:rustc-link-search=native=C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\build\tree-sitter-javascript-537cb2a82064dc96\out

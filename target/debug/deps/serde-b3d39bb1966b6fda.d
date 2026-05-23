@@ -1,0 +1,14 @@
+C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps\serde-b3d39bb1966b6fda.d: C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\build\serde-ec5d43ba83c91941\out/private.rs
+
+C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps\libserde-b3d39bb1966b6fda.rlib: C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\build\serde-ec5d43ba83c91941\out/private.rs
+
+C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\deps\libserde-b3d39bb1966b6fda.rmeta: C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\build\serde-ec5d43ba83c91941\out/private.rs
+
+C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs:
+C:\Users\simon\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs:
+C:\Users\simon\Downloads\CRAP_better_stack\polycrap\target\debug\build\serde-ec5d43ba83c91941\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\simon\\Downloads\\CRAP_better_stack\\polycrap\\target\\debug\\build\\serde-ec5d43ba83c91941\\out

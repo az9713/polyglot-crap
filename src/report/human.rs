@@ -1,0 +1,406 @@
+//! `--format human` — coloured comfy-table output for terminal consumption.
+
+use super::per_crate::write_per_crate_human;
+use super::types::{Grade, coverage_bar, delta_display};
+use crate::delta::{DeltaEntry, DeltaReport, DeltaStatus};
+use crate::merge::CrapEntry;
+use anyhow::Result;
+use comfy_table::{Attribute, Cell, CellAlignment, Color, Table, presets::UTF8_FULL};
+use owo_colors::OwoColorize;
+use std::io::Write;
+
+pub(crate) fn render_human(
+    entries: &[CrapEntry],
+    threshold: f64,
+    out: &mut dyn Write,
+) -> Result<()> {
+    if entries.is_empty() {
+        writeln!(out, "No functions found.")?;
+        return Ok(());
+    }
+    write_per_crate_human(entries, threshold, out)?;
+    let table = build_table(entries, threshold);
+    writeln!(out, "{table}")?;
+    write_summary(
+        out,
+        super::crappy_count(entries, threshold),
+        entries.len(),
+        threshold,
+    )
+}
+
+fn build_table(
+    entries: &[CrapEntry],
+    threshold: f64,
+) -> Table {
+    let mut table = Table::new();
+    table.load_preset(UTF8_FULL);
+    table.set_header(vec![
+        Cell::new("").add_attribute(Attribute::Bold),
+        Cell::new("CRAP").add_attribute(Attribute::Bold),
+        Cell::new("CC").add_attribute(Attribute::Bold),
+        Cell::new("Coverage").add_attribute(Attribute::Bold),
+        Cell::new("Function").add_attribute(Attribute::Bold),
+        Cell::new("Location").add_attribute(Attribute::Bold),
+    ]);
+    table
+        .column_mut(1)
+        .unwrap()
+        .set_cell_alignment(CellAlignment::Right);
+    table
+        .column_mut(2)
+        .unwrap()
+        .set_cell_alignment(CellAlignment::Right);
+    for entry in entries {
+        table.add_row(build_row(entry, threshold));
+    }
+    table
+}
+
+fn build_row(
+    entry: &CrapEntry,
+    threshold: f64,
+) -> Vec<Cell> {
+    let grade = Grade::of(entry.crap, threshold);
+    let color = grade.color();
+    vec![
+        Cell::new(grade.icon()).fg(color),
+        Cell::new(format!("{:.1}", entry.crap)).fg(color),
+        Cell::new(entry.cyclomatic as usize),
+        Cell::new(coverage_bar(entry.coverage)),
+        Cell::new(&entry.function),
+        Cell::new(format!("{}:{}", entry.file.display(), entry.line)),
+    ]
+}
+
+fn write_summary(
+    out: &mut dyn Write,
+    crappy: usize,
+    total: usize,
+    threshold: f64,
+) -> Result<()> {
+    if crappy == 0 {
+        writeln!(
+            out,
+            "{} {} function(s) analyzed; none exceed CRAP threshold {}.",
+            "✓".green(),
+            total,
+            threshold
+        )?;
+    } else {
+        writeln!(
+            out,
+            "{} {}/{} function(s) exceed CRAP threshold {}.",
+            "✗".red(),
+            crappy,
+            total,
+            threshold
+        )?;
+    }
+    Ok(())
+}
+
+pub(crate) fn render_delta_human(
+    report: &DeltaReport,
+    threshold: f64,
+    out: &mut dyn Write,
+) -> Result<()> {
+    if report.entries.is_empty() && report.removed.is_empty() {
+        writeln!(out, "No functions found.")?;
+        return Ok(());
+    }
+
+    if !report.entries.is_empty() {
+        let table = build_delta_table(&report.entries, threshold);
+        writeln!(out, "{table}")?;
+    }
+
+    if !report.removed.is_empty() {
+        writeln!(out, "Removed since baseline:")?;
+        for r in &report.removed {
+            writeln!(
+                out,
+                "  {}  {} (was {:.1})",
+                "—".dimmed(),
+                r.function,
+                r.baseline_crap
+            )?;
+        }
+    }
+
+    write_delta_summary(out, report)
+}
+
+fn build_delta_table(
+    entries: &[DeltaEntry],
+    threshold: f64,
+) -> Table {
+    let mut table = Table::new();
+    table.load_preset(UTF8_FULL);
+    table.set_header(vec![
+        Cell::new("").add_attribute(Attribute::Bold),
+        Cell::new("CRAP").add_attribute(Attribute::Bold),
+        Cell::new("Δ").add_attribute(Attribute::Bold),
+        Cell::new("CC").add_attribute(Attribute::Bold),
+        Cell::new("Coverage").add_attribute(Attribute::Bold),
+        Cell::new("Function").add_attribute(Attribute::Bold),
+        Cell::new("Location").add_attribute(Attribute::Bold),
+    ]);
+    table
+        .column_mut(1)
+        .unwrap()
+        .set_cell_alignment(CellAlignment::Right);
+    table
+        .column_mut(2)
+        .unwrap()
+        .set_cell_alignment(CellAlignment::Right);
+    table
+        .column_mut(3)
+        .unwrap()
+        .set_cell_alignment(CellAlignment::Right);
+    for de in entries {
+        table.add_row(build_delta_row(de, threshold));
+    }
+    table
+}
+
+fn build_delta_row(
+    de: &DeltaEntry,
+    threshold: f64,
+) -> Vec<Cell> {
+    let e = &de.current;
+    let grade = Grade::of(e.crap, threshold);
+    let color = grade.color();
+
+    let delta_text = delta_display(de);
+    let delta_cell = match de.status {
+        DeltaStatus::Regressed => Cell::new(delta_text).fg(Color::Red),
+        DeltaStatus::Improved => Cell::new(delta_text).fg(Color::Green),
+        DeltaStatus::New | DeltaStatus::Moved => Cell::new(delta_text).fg(Color::Yellow),
+        DeltaStatus::Unchanged => Cell::new(delta_text),
+    };
+
+    let prev_suffix = de
+        .previous_file
+        .as_ref()
+        .map(|p| format!(" ← {}", p.display()))
+        .unwrap_or_default();
+    let location = format!("{}:{}{prev_suffix}", e.file.display(), e.line);
+
+    vec![
+        Cell::new(grade.icon()).fg(color),
+        Cell::new(format!("{:.1}", e.crap)).fg(color),
+        delta_cell,
+        Cell::new(e.cyclomatic as usize),
+        Cell::new(coverage_bar(e.coverage)),
+        Cell::new(&e.function),
+        Cell::new(location),
+    ]
+}
+
+fn write_delta_summary(
+    out: &mut dyn Write,
+    report: &DeltaReport,
+) -> Result<()> {
+    let regressed = report
+        .entries
+        .iter()
+        .filter(|e| e.status == DeltaStatus::Regressed)
+        .count();
+    let improved = report
+        .entries
+        .iter()
+        .filter(|e| e.status == DeltaStatus::Improved)
+        .count();
+    let new = report
+        .entries
+        .iter()
+        .filter(|e| e.status == DeltaStatus::New)
+        .count();
+    let moved = report
+        .entries
+        .iter()
+        .filter(|e| e.status == DeltaStatus::Moved)
+        .count();
+    let unchanged = report
+        .entries
+        .iter()
+        .filter(|e| e.status == DeltaStatus::Unchanged)
+        .count();
+    let removed = report.removed.len();
+
+    writeln!(
+        out,
+        "{}  {}  {}  {}  {}  {}",
+        format!("↑ {regressed} regressed").red(),
+        format!("↓ {improved} improved").green(),
+        format!("★ {new} new").yellow(),
+        format!("↔ {moved} moved").cyan(),
+        format!("· {unchanged} unchanged").dimmed(),
+        format!("— {removed} removed").dimmed(),
+    )?;
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::super::test_support::sample;
+    use super::super::{Format, render};
+    use super::*;
+    use std::path::PathBuf;
+
+    fn entry(
+        crate_name: Option<&str>,
+        function: &str,
+        crap: f64,
+    ) -> CrapEntry {
+        CrapEntry {
+            file: PathBuf::from("src/lib.rs"),
+            function: function.into(),
+            line: 1,
+            cyclomatic: 1.0,
+            coverage: Some(100.0),
+            crap,
+            crate_name: crate_name.map(std::string::ToString::to_string),
+        }
+    }
+
+    #[test]
+    fn human_output_mentions_every_function() {
+        let mut buf = Vec::new();
+        render(&sample(), 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains("clean"));
+        assert!(s.contains("crappy"));
+    }
+
+    #[test]
+    fn human_summary_shows_tick_when_all_clean() {
+        let all_clean = vec![CrapEntry {
+            file: PathBuf::from("a.rs"),
+            function: "clean".into(),
+            line: 1,
+            cyclomatic: 1.0,
+            coverage: Some(100.0),
+            crap: 1.0,
+            crate_name: None,
+        }];
+        let mut buf = Vec::new();
+        render(&all_clean, 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains('✓'), "summary must show ✓ when nothing is crappy");
+        assert!(!s.contains('✗'), "summary must not show ✗ when nothing is crappy");
+    }
+
+    #[test]
+    fn human_summary_shows_cross_with_correct_count() {
+        let mut buf = Vec::new();
+        render(&sample(), 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains('✗'), "output must show ✗ for crappy functions");
+        assert!(s.contains("1/2"), "summary must report 1 out of 2 crappy");
+    }
+
+    #[test]
+    fn empty_entries_prints_no_functions_found() {
+        let mut buf = Vec::new();
+        render(&[], 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains("No functions found."));
+    }
+
+    #[test]
+    fn missing_coverage_shows_dash_in_table() {
+        let entries = vec![CrapEntry {
+            file: PathBuf::from("a.rs"),
+            function: "foo".into(),
+            line: 1,
+            cyclomatic: 1.0,
+            coverage: None,
+            crap: 1.0,
+            crate_name: None,
+        }];
+        let mut buf = Vec::new();
+        render(&entries, 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains('—'), "None coverage must render as —");
+    }
+
+    #[test]
+    fn some_coverage_shows_formatted_number() {
+        let entries = vec![CrapEntry {
+            file: PathBuf::from("a.rs"),
+            function: "foo".into(),
+            line: 1,
+            cyclomatic: 1.0,
+            coverage: Some(44.4),
+            crap: 1.0,
+            crate_name: None,
+        }];
+        let mut buf = Vec::new();
+        render(&entries, 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(s.contains("44.4"), "Some(44.4) must render as 44.4");
+    }
+
+    #[test]
+    fn render_human_includes_per_crate_section_when_workspace() {
+        let entries = vec![entry(Some("alpha"), "a1", 1.0)];
+        let mut buf = Vec::new();
+        render(&entries, 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(
+            s.contains("Per-crate summary:"),
+            "human render must include per-crate section when entries are tagged:\n{s}"
+        );
+        assert!(s.contains("alpha"));
+    }
+
+    #[test]
+    fn render_human_omits_per_crate_section_when_no_workspace_data() {
+        let entries = vec![entry(None, "a1", 1.0)];
+        let mut buf = Vec::new();
+        render(&entries, 30.0, Format::Human, None, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(
+            !s.contains("Per-crate summary"),
+            "non-workspace runs must not show per-crate section:\n{s}"
+        );
+    }
+
+    #[test]
+    fn delta_human_summary_counts_moved_correctly() {
+        use crate::delta::{DeltaEntry, DeltaReport, DeltaStatus};
+        let mk_entry = |fn_name: &str, status: DeltaStatus| DeltaEntry {
+            current: CrapEntry {
+                file: PathBuf::from("src/a.rs"),
+                function: fn_name.into(),
+                line: 1,
+                cyclomatic: 1.0,
+                coverage: Some(100.0),
+                crap: 1.0,
+                crate_name: None,
+            },
+            baseline_crap: Some(1.0),
+            delta: Some(0.0),
+            status,
+            previous_file: None,
+        };
+        let report = DeltaReport {
+            entries: vec![
+                mk_entry("moved_fn", DeltaStatus::Moved),
+                mk_entry("u1", DeltaStatus::Unchanged),
+                mk_entry("u2", DeltaStatus::Unchanged),
+                mk_entry("u3", DeltaStatus::Unchanged),
+            ],
+            removed: vec![],
+        };
+        let mut buf = Vec::new();
+        render_delta_human(&report, 30.0, &mut buf).unwrap();
+        let s = String::from_utf8(buf).unwrap();
+        assert!(
+            s.contains("↔ 1 moved"),
+            "human delta summary must report 1 moved, not 3:\n{s}"
+        );
+    }
+}
